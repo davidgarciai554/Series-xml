@@ -1,0 +1,25 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.0">
+  <xsd:element name="Series">
+    <xsd:complexType>
+      <xsd:choice maxOccurs="unbounded">
+        <xsd:element name="serie" minOccurs="0" maxOccurs="unbounded">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="nombre" type="xsd:string" />
+              <xsd:element name="genero" type="xsd:string" />
+              <xsd:element name="reparto" type="xsd:string" />
+                <xsd:attribute name="protagonista" type="xsd:string"/>
+                <xsd:attribute name="coprotagonista" type="xsd:string"/>
+              <xsd:element name="creador" type="xsd:string" />
+              <xsd:element name="temporadas" type="xsd:string" />
+                <xsd:attribute name="episodios" type="xsd:string"/>
+              <xsd:element name="plataformaVisualizacion" type="xsd:string" />
+              <xsd:element name="añoInicio" type="xsd:string" />
+              <xsd:element name="añoFinalizacion" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:choice>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
