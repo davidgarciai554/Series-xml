@@ -1,31 +1,32 @@
-<Series xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<serie>
-<nombre>The Mandalorian</nombre>
-<genero>Space Western</genero>
-<reparto protagonista="Mandaloriano y El niño" coprotagonista="Greef Karga, Dr. Pershing, Moff Gideón,  Xi'an, Ranzar"></reparto>
-<creador>Jon Favreau</creador>
-<temporadas episodios="12">2</temporadas>
-<añoInicio>2019</añoInicio>	
-<plataformaVisualicacion>Disney+</plataformaVisualicacion>
-</serie>
-<serie>
-<nombre>Breaking Bad</nombre>
-<genero>Drama criminal</genero>
-<reparto protagonista="Walter White, Jesse Pinkman, Hank Schrader, Skyler White" coprotagonista="Saul Goodman, "></reparto>
-<creador>Vince Gilligan</creador>
-<temporadas episodios="62">5</temporadas>
-<añoInicio>2008</añoInicio>	
-<añoFinalizacion>2013</añoFinalizacion>	
-<plataformaVisualicacion>Netflix</plataformaVisualicacion>
-</serie>
-<serie>
-<nombre>Hijos de la Anarquia</nombre>
-<genero>Drama</genero>
-<reparto protagonista="Jackson Teller, Gemma Teller, Alexander Trager" coprotragonista="Wendy Case, Happy Lowman, George Skogstrom"></reparto>
-<creador>Kurt Sutter</creador>
-<temporadas episodios="92">7</temporadas>
-<añoInicio>2008</añoInicio>	
-<añoFinalizacion>2014</añoFinalizacion>	
-<plataformaVisualicacion>Netflix</plataformaVisualicacion>
-</serie>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Series>
+    <serie>
+        <nombre>The Mandalorian</nombre>
+        <genero>Space Western</genero>
+        <reparto>Mandaloriano y El niño</reparto>
+        <creador>Jon Favreau</creador>
+        <temporadas episodios="12">2</temporadas>
+        <fechaInicio>2019</fechaInicio>
+        <plataformaVisualicacion>Disney+</plataformaVisualicacion>
+    </serie>
+    <serie>
+        <nombre>Breaking Bad</nombre>
+        <genero>Drama criminal</genero>
+        <reparto>Walter White, Jesse Pinkman, Hank Schrader, Skyler White</reparto>
+        <creador>Vince Gilligan</creador>
+        <temporadas episodios="62">5</temporadas>
+        <fechaInicio>2008</fechaInicio>
+        <fechaFinalizacion>2013</fechaFinalizacion>
+        <plataformaVisualicacion>Netflix</plataformaVisualicacion>
+    </serie>
+    <serie>
+        <nombre>Hijos de la Anarquia</nombre>
+        <genero>Drama</genero>
+        <reparto>Jackson Teller, Gemma Teller, Alexander Trager</reparto>
+        <creador>Kurt Sutter</creador>
+        <temporadas episodios="92">7</temporadas>
+        <fechaInicio>2008</fechaInicio>
+        <fechaFinalizacion>2014</fechaFinalizacion>
+        <plataformaVisualicacion>Netflix</plataformaVisualicacion>
+    </serie>
 </Series>

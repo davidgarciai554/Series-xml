@@ -60,7 +60,7 @@ public class mostarXML {
             for (int i = start; i < length + start; i++) {
                 cadena = cadena + ch[i];
             }
-
+           
         }
 
         @Override
@@ -74,29 +74,25 @@ public class mostarXML {
         public void startElement(String uri, String localName, String etiqueta, Attributes attr) throws SAXException {
             if (etiqueta.equals("nombre")) {
                 cadena = cadena + "El nombre es: ";
-            } else if (etiqueta.equals("descripcion")) {
-                cadena = cadena + "Descripcion: ";
             } else if (etiqueta.equals("genero")) {
                 cadena = cadena + "Genero: ";
             } else if (etiqueta.equals("reparto")) {
-                cadena = cadena + "Protagonistas: " + attr.getValue(attr.getQName(0)) + "\n ";
-                cadena = cadena + "Co-protagonistas: " + attr.getValue(attr.getQName(1));
+                cadena = cadena + "Reparto: ";
             } else if (etiqueta.equals("creador")) {
                 cadena = cadena + "Creador: ";
             } else if (etiqueta.equals("temporadas")) {
-                cadena = cadena + "Temporadas: ";
-                cadena = cadena + "Episodios: " + attr.getValue(attr.getQName(0));
-            } else if (etiqueta.equals("añoInicio")) {
+                cadena = cadena + "Episodios: " + attr.getValue(attr.getQName(0))+ "\n" + "Temporadas: ";
+            } else if (etiqueta.equals("fechaInicio")) {
                 cadena = cadena + "Año que empezo: ";
-            } else if (etiqueta.equals("añoFinalizacion") && !flag) {
+            } else if (etiqueta.equals("fechaFinalizacion") && !flag) {
                 cadena = cadena + "Año que acabo: ";
                 flag = true;
             } else if (etiqueta.equals("plataformaVisualicacion")) {
                 if (!flag) {
-                    cadena = cadena + "En trasmision \n";
+                    cadena = cadena + "En trasmision "+ "\n";
                 }
                 cadena = cadena + "Plataforma de visualizacion: ";
-                flag=false;
+                flag = false;
             }
 
         }
