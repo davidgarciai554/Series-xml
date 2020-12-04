@@ -22,8 +22,8 @@ import visual.index;
 public class cambiarValores {
 
     Series misSeries;
-    Series.Serie.Temporadas misTemporadas;
     String serieCambiar;
+
     public boolean abrirJAXB(File file) {
         try {
             JAXBContext contexto = JAXBContext.newInstance(Series.class);
@@ -83,4 +83,3 @@ public class cambiarValores {
         }
     }
 }
-

@@ -6,6 +6,7 @@
 package visual;
 
 import codigo.cambiarValores;
+import codigo.consultas;
 import codigo.mostarXML;
 import java.io.File;
 import javax.swing.JOptionPane;
@@ -19,6 +20,7 @@ public class index extends javax.swing.JFrame {
     File file = new File("series.xml");
     mostarXML show = new mostarXML();
     cambiarValores change = new cambiarValores();
+    consultas query = new consultas();
 
     public index() {
         initComponents();
@@ -43,26 +45,22 @@ public class index extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         nuevaFechaIni = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
+        añadirElemento = new javax.swing.JFrame();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         salida = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
         nombre_serie = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-
-        cambiarValor.setPreferredSize(new java.awt.Dimension(400, 500));
+        consultaBox = new javax.swing.JComboBox<>();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         jLabel2.setText("Nuevo nombre");
 
         jLabel3.setText("Nuevo genero");
 
         jLabel4.setText("Nueva fecha Fin.");
-
-        nuevaFechaFin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nuevaFechaFinActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("Nueva fecha Ini.");
 
@@ -94,7 +92,7 @@ public class index extends javax.swing.JFrame {
                         .addComponent(nuevaFechaIni, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(cambiarValorLayout.createSequentialGroup()
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(11, Short.MAX_VALUE))
+                        .addContainerGap(209, Short.MAX_VALUE))
                     .addGroup(cambiarValorLayout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -124,6 +122,17 @@ public class index extends javax.swing.JFrame {
                 .addContainerGap(357, Short.MAX_VALUE))
         );
 
+        javax.swing.GroupLayout añadirElementoLayout = new javax.swing.GroupLayout(añadirElemento.getContentPane());
+        añadirElemento.getContentPane().setLayout(añadirElementoLayout);
+        añadirElementoLayout.setHorizontalGroup(
+            añadirElementoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        añadirElementoLayout.setVerticalGroup(
+            añadirElementoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Mostar XML");
@@ -146,6 +155,22 @@ public class index extends javax.swing.JFrame {
 
         jLabel1.setText("Nombre Serie");
 
+        consultaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Nombres Series", "Series Acabadas", "Repartos" }));
+
+        jButton4.setText("Buscar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("Añadir elemento");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -154,13 +179,21 @@ public class index extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(consultaBox, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(nombre_serie))
+                    .addComponent(nombre_serie)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -169,15 +202,22 @@ public class index extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
                             .addComponent(nombre_serie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(consultaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton5)
+                        .addGap(47, 47, 47))))
         );
 
         pack();
@@ -197,7 +237,7 @@ public class index extends javax.swing.JFrame {
         change.abrirJAXB(file);
         if (change.validarSerie(nombre_serie.getText())) {
             cambiarValor.setVisible(true);
-            cambiarValor.setSize(220, 350);
+            cambiarValor.setSize(220, 220);
         } else {
             JOptionPane.showMessageDialog(null, "Debes escribir antes el nombre correcto", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
@@ -206,15 +246,40 @@ public class index extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if (change.abrirJAXB(file)) {
             change.cambiarValores(nuevoNombre.getText(), nuevoGenero.getText(), nuevaFechaIni.getText(), nuevaFechaFin.getText());
-            
+            cambiarValor.setVisible(false);
         } else {
             JOptionPane.showMessageDialog(null, "No se pudo abrir", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void nuevaFechaFinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaFechaFinActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nuevaFechaFinActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if (consultaBox.getSelectedItem().toString() == "Nombres Series") {
+            if (query.abreXPATH(file)) {
+                salida.setText("Nombres de serie: \n"+query.ejecutarXPath("//nombre"));
+            }
+        } else if (consultaBox.getSelectedItem().toString() == "Series Acabadas") {
+            if (query.abreXPATH(file)) {
+                salida.setText("Series que acabaron: \n"+query.ejecutarXPath("/Series/serie[fechaFinalizacion>0]/nombre"));
+            }
+        } else if (consultaBox.getSelectedItem().toString() == "Repartos") {
+            if (query.abreXPATH(file)) {
+                salida.setText("Personajes de las series: \n"+query.ejecutarXPath("//reparto"));
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Elige una opcion", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        if (change.validarSerie(nombre_serie.getText())) {
+            cambiarValor.setVisible(true);
+            cambiarValor.setSize(220, 220);
+        } else {
+            
+        }
+          
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -252,10 +317,14 @@ public class index extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFrame añadirElemento;
     private javax.swing.JFrame cambiarValor;
+    private javax.swing.JComboBox<String> consultaBox;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
